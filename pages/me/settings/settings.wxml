@@ -1,0 +1,7 @@
+<view class="page">
+    <view class="page__hd">
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="default" bindtap="openConfirm">清除缓存</button>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,43 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/me/me",
+    "pages/me/about",
+    "pages/me/settings/settings",
+    "pages/me/feedback/feedback",
+    "pages/me/bind/bind",
+    "pages/input/input"
+  ],
+  "window": {
+    "navigationBarTitleText": "欢迎使用imERP",
+    "backgroundColor": "#f8f8f8"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "images/home.png",
+      "selectedIconPath": "images/home-actived.png"
+    }, {
+      "pagePath": "pages/logs/logs",
+      "text": "签到",
+      "iconPath": "images/locate.png",
+      "selectedIconPath": "images/locate-actived.png"
+    }, {
+      "pagePath": "pages/me/me",
+      "text": "我",
+      "iconPath": "images/me.png",
+      "selectedIconPath": "images/me-actived.png"
+    }]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false
+}
+
+

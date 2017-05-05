@@ -1,0 +1,27 @@
+<view class="page">
+
+		<view class="page__bd">
+
+        <view class="weui-panel weui-panel_access">
+		    </view>
+
+
+				<view class="weui-cells">
+
+	        <view class="weui-cells weui-cells_after-title">
+			        <view class="weui-cells weui-cells_after-title">
+
+	                <view class="weui-cell__bd">
+	                    <textarea class="weui-textarea" placeholder="请输入您的意见" style="height: 4.3em" />
+	                    <view class="weui-textarea-counter">0/400</view>
+	                </view>
+	            </view>
+	        </view>
+
+			    <view class="weui-btn-area"  bindtap="bindSubmitFeedback">
+			      <button class="weui-btn" type="primary">提交反馈</button>
+			    </view>
+
+	    </view>
+    </view>
+</view>

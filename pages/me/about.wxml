@@ -1,0 +1,28 @@
+<view class="page">
+
+    <view class="weui-panel">
+        <view class="weui-panel__hd">imERP</view>
+        <view class="weui-panel__bd">
+            <view class="weui-article">
+              imERP是基于先进技术研发的一款战略性ERP产品，帮助客户实现多组织异地协同、财务精益化集中管控、供应链高效管理、生产制造智能化、全渠道O2O营销，让客户随时随地轻松办公，助力客户快速向“互联网+”转型。
+            </view>
+        </view>
+    </view>
+
+    <view class="page__bd">
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">开发者</view>
+            <view class="weui-panel__bd">
+                <navigator url="https://github.com/cheenwe" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+                        <image class="weui-media-box__thumb" src="https://avatars3.githubusercontent.com/u/5643208?v=3&s=460" />
+                    </view>
+                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+                        <view class="weui-media-box__title">Cheenwe</view>
+                        <view class="weui-media-box__desc">慎始而敬终，终不以困</view>
+                    </view>
+                </navigator>
+            </view>
+        </view>
+    </view>
+</view>
