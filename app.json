@@ -1,35 +1,67 @@
 {
-  "pages":[
-    "pages/index/index",
-    "pages/logs/logs",
+  "pages": [
+    "pages/location/location",
     "pages/me/me",
     "pages/me/about",
     "pages/me/settings/settings",
     "pages/me/feedback/feedback",
     "pages/me/bind/bind",
-    "pages/input/input"
+    "pages/location/detail/detail",
+
+    "pages/index/index",
+    "pages/index/button/button",
+    "pages/index/list/list",
+    "pages/index/input/input",
+    "pages/index/slider/slider",
+    "pages/index/uploader/uploader",
+    "pages/index/article/article",
+    "pages/index/badge/badge",
+    "pages/index/flex/flex",
+    "pages/index/footer/footer",
+    "pages/index/gallery/gallery",
+    "pages/index/grid/grid",
+    "pages/index/icons/icons",
+    "pages/index/loadmore/loadmore",
+    "pages/index/panel/panel",
+    "pages/index/preview/preview",
+    "pages/index/progress/progress",
+    "pages/index/actionsheet/actionsheet",
+    "pages/index/dialog/dialog",
+    "pages/index/msg/msg",
+    "pages/index/msg/msg_success",
+    "pages/index/msg/msg_fail",
+    "pages/index/picker/picker",
+    "pages/index/toast/toast",
+    "pages/index/navbar/navbar",
+    "pages/index/tabbar/tabbar",
+    "pages/index/searchbar/searchbar"
+     
   ],
   "window": {
     "navigationBarTitleText": "欢迎使用imERP",
     "backgroundColor": "#f8f8f8"
   },
   "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "首页",
-      "iconPath": "images/home.png",
-      "selectedIconPath": "images/home-actived.png"
-    }, {
-      "pagePath": "pages/logs/logs",
-      "text": "签到",
-      "iconPath": "images/locate.png",
-      "selectedIconPath": "images/locate-actived.png"
-    }, {
-      "pagePath": "pages/me/me",
-      "text": "我",
-      "iconPath": "images/me.png",
-      "selectedIconPath": "images/me-actived.png"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home-actived.png"
+      },
+      {
+        "pagePath": "pages/location/location",
+        "text": "签到",
+        "iconPath": "images/locate.png",
+        "selectedIconPath": "images/locate-actived.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我",
+        "iconPath": "images/me.png",
+        "selectedIconPath": "images/me-actived.png"
+      }
+    ]
   },
   "networkTimeout": {
     "request": 10000,
@@ -39,5 +71,3 @@
   },
   "debug": false
 }
-
-

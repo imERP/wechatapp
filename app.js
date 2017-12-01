@@ -13,9 +13,12 @@ App({
     }else{
       //调用登录接口
       wx.login({
-        success: function () {
+        success: function (res) {
+          console.log(res.code)
           wx.getUserInfo({
-            success: function (res) {
+            success: function (res) { 
+              that.globalData.userInfo = res.userInfo
+              console.log(res)
               that.globalData.userInfo = res.userInfo
               typeof cb == "function" && cb(that.globalData.userInfo)
             }
@@ -25,6 +28,7 @@ App({
     }
   },
   globalData:{
-    userInfo:null
+    userInfo:null,
+    server: 'http://192.168.100.251:3000'
   }
 })
