@@ -1,12 +1,13 @@
 {
   "pages": [
     "pages/location/location",
+    "pages/location/list",
+    "pages/location/detail/detail",
     "pages/me/me",
     "pages/me/about",
     "pages/me/settings/settings",
     "pages/me/feedback/feedback",
     "pages/me/bind/bind",
-    "pages/location/detail/detail",
 
     "pages/index/index",
     "pages/index/button/button",
@@ -35,7 +36,6 @@
     "pages/index/navbar/navbar",
     "pages/index/tabbar/tabbar",
     "pages/index/searchbar/searchbar"
-     
   ],
   "window": {
     "navigationBarTitleText": "欢迎使用imERP",

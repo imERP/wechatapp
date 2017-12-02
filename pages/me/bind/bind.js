@@ -6,6 +6,18 @@ Page({
     },
 
     getphone: function (e){
+      wx.request({
+        url: 'localhost:3000/v1/***', //仅为示例，并非真实的接口地址
+        method: 'POST',
+        data: {
+          x: '',
+          y: ''
+        },
+        success: function (res) {
+          console.log(res.data)
+        }
+      })
+
         this.setData({
             wait_btn:true,
             send_btn:false,

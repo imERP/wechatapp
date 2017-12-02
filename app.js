@@ -29,6 +29,7 @@ App({
   },
   globalData:{
     userInfo:null,
-    server: 'http://192.168.100.251:3000'
+    server: 'http://192.168.100.251:3000',
+    currentLocation: {}
   }
 })

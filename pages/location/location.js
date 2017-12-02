@@ -1,4 +1,5 @@
 //logs.js
+const app = getApp()
 const REST = require('../../utils/rest.js')
 // Page({
 //   data: {
@@ -15,6 +16,7 @@ const REST = require('../../utils/rest.js')
 
 Page({
 
+
   data: {
     scale: 18,
     latitude: 0,
@@ -22,16 +24,17 @@ Page({
   },
   // 页面加载
   onLoad: function (options) {
-    let api = '/wechat/users/update.json';
-    // let value = e.detail.value;
 
-    let data = { 
-    };
+    // let api = '/wechat/users/update.json';
+    // // let value = e.detail.value;
 
-    REST.post(api, data, res => {
-      console.log(res)
-      }
-     )
+    // let data = { 
+    // };
+
+    // REST.post(api, data, res => {
+    //   console.log(res)
+    //   }
+    //  )
 
     // 2.获取并设置当前位置经纬度
     wx.getLocation({
@@ -41,6 +44,8 @@ Page({
           longitude: res.longitude,
           latitude: res.latitude
         })
+
+        this.setCurrentLocation();
       }
     });
 
@@ -65,20 +70,32 @@ Page({
             position: {
               left: res.windowWidth / 2 - 11,
               top: res.windowHeight / 2 - 45,
-              width: 22,
-              height: 45
+              width: 31,
+              height: 48
             },
             clickable: true
-          }]
+            },
+            {
+              id: 3,
+              iconPath: '/images/icon_nav_form.png',
+              position: { 
+                left: res.windowWidth - 60,
+                top: res.windowHeight - 80,
+                width: 35,
+                height: 35
+              },
+              clickable: true
+            }]
         })
       }
     });
+
   },
   // 页面显示
   onShow: function () {
     // 1.创建地图上下文，移动当前位置到地图中心
     this.mapCtx = wx.createMapContext("ofoMap");
-    this.movetoPosition()
+    this.movetoPosition();
   },
   // 地图控件点击事件
   bindcontroltap: function (e) {
@@ -89,9 +106,40 @@ Page({
         console.log("click 1")
         break;
       // 点击定位控件
-      case 2: wx.navigateTo({
-        url: '../location/detail/detail'
-      }); 
+      case 2: this.showLocation();
+
+        break;
+      case 3:
+      //  wx.navigateTo({
+      //     url: '/pages/location/list'
+      //   }); 
+        // console.log("click 3")
+        wx.getStorage({
+          key: 'current_location',
+          success: function (res) {
+            console.log(res.data)
+            
+            let result = res.data.location
+            let time = res.data.time
+            let remark = res.data.remark
+
+            console.log(result)
+            wx.showModal({
+              content: "时间:" + time + 
+              "坐标：" + result + 
+              "备注：" + remark,
+              showCancel: false,
+              success: function (res) {
+                if (res.confirm) {
+                  console.log('用户点击确定')
+                }
+              }
+            });
+            // this.setData({
+            //   locationInfo: res.data
+            // })
+          }
+        })
         break;
       default: break;
     }
@@ -103,8 +151,10 @@ Page({
       console.log("begin") 
       // 停止拖动，显示位置
     } else if (e.type == "end") {
-      console.log("end") 
+      console.log("end")
+      this.setCurrentLocation()
     }
+
   },
   // 地图标记点击事件 
   bindmarkertap: function (e) {
@@ -126,15 +176,22 @@ Page({
         dottedLine: true
       }],
       scale: 18
-    })
+    }) 
   },
   showLocation: function () {
-    wx.redirectTo({
-      url: '../index/index'
-    })
+    wx.navigateTo({
+      url: '../location/detail/detail'
+    }); 
+    // wx.redirectTo({
+    //   url: '../index/index'
+    // })
   },
   // 定位函数，移动位置到地图中心
   movetoPosition: function () {
     this.mapCtx.moveToLocation();
-  }
+  },
+  setCurrentLocation: function() {
+    app.globalData.currentLocation.latitude = this.data.latitude
+    app.globalData.currentLocation.longitude = this.data.longitude
+  },
 })
