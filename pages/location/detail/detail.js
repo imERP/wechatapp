@@ -36,11 +36,18 @@ Page({
 
 
   formSubmit: function (e) {
-    // console.log(e.detail.value)
-    wx.setStorage({
-      key: "current_location",
-      data: e.detail.value
-    })
+    // // console.log(e.detail.value)
+    // wx.setStorage({
+    //   key: "current_location",
+    //   data: e.detail.value
+    // })
+
+    // 展示本地存储能力
+    var locations = wx.getStorageSync('location_list') || []
+    locations.unshift(e.detail.value)
+    wx.setStorageSync('location_list', locations)
+
+    // console.log(locations)
     this.moveToLocation()
     wx.showToast({
       title: "上传成功!",

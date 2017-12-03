@@ -109,13 +109,12 @@ Page({
       case 2: this.showLocation();
 
         break;
-      case 3:
-      //  wx.navigateTo({
-      //     url: '/pages/location/list'
-      //   }); 
+      case 3:wx.navigateTo({
+          url: '/pages/location/list'
+        }); 
         // console.log("click 3")
         wx.getStorage({
-          key: 'current_location',
+          key: 'location_list',
           success: function (res) {
             console.log(res.data)
             
