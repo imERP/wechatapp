@@ -112,45 +112,32 @@ Page({
       case 3:wx.navigateTo({
           url: '/pages/location/list'
         }); 
-        // console.log("click 3")
-        // wx.getStorage({
-        //   key: 'location_list',
-        //   success: function (res) {
-        //     // console.log(res.data)
-            
-        //     // let result = res.data.location
-        //     // let time = res.data.time
-        //     // let remark = res.data.remark
-
-        //     // console.log(result)
-        //     // wx.showModal({
-        //     //   content: "时间:" + time + 
-        //     //   "坐标：" + result + 
-        //     //   "备注：" + remark,
-        //     //   showCancel: false,
-        //     //   success: function (res) {
-        //     //     if (res.confirm) {
-        //     //       console.log('用户点击确定')
-        //     //     }
-        //     //   }
-        //     // });
-        //     // this.setData({
-        //     //   locationInfo: res.data
-        //     // })
-        //   }
-        // })
         break;
       default: break;
     }
   },
+  //获取中间点的经纬度，并mark出来
+  getNewLngLat: function () {
+    var that = this;
+    this.mapCtx = wx.createMapContext("ofoMap");
+    this.mapCtx.getCenterLocation({
+      success: function (res) {
+        that.setData({
+          longitude: res.longitude, 
+          latitude: res.latitude
+        })
+      }
+    })
+  },
   // 地图视野改变事件
   bindregionchange: function (e) {
-    // 拖动地图，获取附件位置
+    // 拖动地图，获取附近位置
     if (e.type == "begin") {
       console.log("begin") 
       // 停止拖动，显示位置
     } else if (e.type == "end") {
-      console.log("end")
+      this.getNewLngLat()
+      console.log(this.data)
       this.setCurrentLocation()
     }
 

@@ -6,15 +6,14 @@
               <view class="weui-media-box__title weui-media-box__title_in-text">暂时无法识别位置</view>
                <view class="weui-media-box__desc">{{remark}}</view> 
               <view class="weui-media-box__info">
-                  <!-- <view class="weui-media-box__info__meta">文字来源</view> -->
-                  <view class="weui-media-box__info__meta">{{time}}</view>
-                  <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{latitude}},{{longitude}}</view>
+                  <view class="weui-media-box__info__meta">时间: {{time}}</view>
+              </view>
+              <view class="weui-media-box__info">
+                  <view class="weui-media-box__info__meta">坐标点: {{latitude}},{{longitude}}</view>
               </view>
           </view>
       </view>
   </view>
-
-  
-    <map id="ofoMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="{{scale}}" show-location/>
  
+  <map id="showDetailMap" latitude="{{latitude}}" longitude="{{longitude}}" scale="{{scale}}"   markers="{{markers}}" controls="{{controls}}"  show-location/>
 </view>
