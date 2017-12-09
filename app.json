@@ -8,7 +8,6 @@
     "pages/me/settings/settings",
     "pages/me/feedback/feedback",
     "pages/me/bind/bind",
-
     "pages/index/index",
     "pages/index/button/button",
     "pages/index/list/list",
@@ -35,7 +34,8 @@
     "pages/index/toast/toast",
     "pages/index/navbar/navbar",
     "pages/index/tabbar/tabbar",
-    "pages/index/searchbar/searchbar"
+    "pages/index/searchbar/searchbar",
+    "pages/location/detail/show"
   ],
   "window": {
     "navigationBarTitleText": "欢迎使用imERP",

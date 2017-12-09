@@ -7,6 +7,6 @@ Page({
     this.setData({
       locations: (wx.getStorageSync('location_list') || [])
       })
-    console.log("locations")
+    // console.log("locations")
   } 
 })

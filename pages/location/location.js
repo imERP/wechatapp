@@ -113,32 +113,32 @@ Page({
           url: '/pages/location/list'
         }); 
         // console.log("click 3")
-        wx.getStorage({
-          key: 'location_list',
-          success: function (res) {
-            console.log(res.data)
+        // wx.getStorage({
+        //   key: 'location_list',
+        //   success: function (res) {
+        //     // console.log(res.data)
             
-            let result = res.data.location
-            let time = res.data.time
-            let remark = res.data.remark
+        //     // let result = res.data.location
+        //     // let time = res.data.time
+        //     // let remark = res.data.remark
 
-            console.log(result)
-            wx.showModal({
-              content: "时间:" + time + 
-              "坐标：" + result + 
-              "备注：" + remark,
-              showCancel: false,
-              success: function (res) {
-                if (res.confirm) {
-                  console.log('用户点击确定')
-                }
-              }
-            });
-            // this.setData({
-            //   locationInfo: res.data
-            // })
-          }
-        })
+        //     // console.log(result)
+        //     // wx.showModal({
+        //     //   content: "时间:" + time + 
+        //     //   "坐标：" + result + 
+        //     //   "备注：" + remark,
+        //     //   showCancel: false,
+        //     //   success: function (res) {
+        //     //     if (res.confirm) {
+        //     //       console.log('用户点击确定')
+        //     //     }
+        //     //   }
+        //     // });
+        //     // this.setData({
+        //     //   locationInfo: res.data
+        //     // })
+        //   }
+        // })
         break;
       default: break;
     }

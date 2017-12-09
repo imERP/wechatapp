@@ -1,73 +1,14 @@
-<!-- pages/location/detail/detail.wxml 
-<view class="page">
-    <view class="weui-cells__title">坐标点:</view>
-    <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell weui-cell_input">
-            <view class="weui-cell__bd">
-
-                <input name="location" class="weui-input" placeholder-class="placeholder" placeholder="location" value="{{locationInfo.latitude}},{{locationInfo.longitude}}" disabled='true'></input>
-            </view>
-        </view>
-    </view>
-
-    <view class="weui-cells__title">位 置:</view>
-    <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell weui-cell_input">
-            <view class="weui-cell__bd"> 
-                <input name="address" class="weui-input" placeholder-class="placeholder" placeholder="暂无识别" value="{{locationInfo.address}}" disabled='true'></input>
-            </view>
-        </view>
-    </view>
-
-    <view class="weui-cells__title">时 间:</view>
-    <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell weui-cell_input">
-            <view class="weui-cell__bd">
-                <input name="time" class="weui-input" placeholder-class="placeholder" placeholder="请输入备注" value="{{locationInfo.time}}" disabled='true'></input>
-            </view>
-        </view>
-    </view>
-
-    <view class="weui-cells__title">备 注:</view>
-    <view class="weui-cells weui-cells_after-title">
-        <view class="weui-cell weui-cell_input">
-            <view class="weui-cell__bd">
-                <input name="remark" class="weui-input" placeholder-class="placeholder" placeholder="请输入备注" value="{{locationInfo.remark}}"></input>
-            </view>
-        </view>
-    </view>
-
-    <view class="endride">
-        <button type="default" bindtap="moveToLocation">回到地图</button>
-    </view>
-  
-</view> -->
-locations: {{locations}}
 <view class="page">
     <view class="page__hd">
         <view class="weui-cells__title">上传历史</view>
         <view class="weui-cells weui-cells_after-title">
-
-
-          <block wx:for="{{locations}}" wx:for-item="log">
-            <text class="log-item">{{index + 1}}. {{log.location}}</text>
-          </block>
-
-            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active"  wx:for="{{locations}}" wx:for-item="location">
-                <view class="weui-cell__hd">
-                    <image src="{{icon}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
-                </view>
-                <view class="weui-cell__bd">cell standard</view>
-                <view class="weui-cell__ft weui-cell__ft_in-access">说明文字</view>
-            </navigator>
-
-            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                <view class="weui-cell__hd">
-                    <image src="{{icon}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
-                </view>
-                <view class="weui-cell__bd">cell standard</view>
-                <view class="weui-cell__ft weui-cell__ft_in-access">说明文字</view>
-            </navigator>
+          <view wx:for="{{locations}}" wx:for-index="idx" wx:for-item="location" >
+          <navigator url='detail/show?time={{location.time}}&remark={{location.remark}}&location={{location.location}}' class="weui-cell weui-cell_access" hover-class="weui-cell_active" >
+              <view class="weui-cell__bd">{{idx}}. {{location.time}}</view>
+              <!-- <view class="weui-cell__bd">{{location.location}}</view> -->
+              <view class="weui-cell__ft weui-cell__ft_in-access">{{location.remark}}</view>
+          </navigator>
+          </view>
         </view>
     </view>
 </view>
