@@ -28,8 +28,11 @@ App({
     }
   },
   globalData:{
-    userInfo:null,
-    server: 'http://192.168.100.251:3000',
-    currentLocation: {}
+    userInfo: null,
+    token:null,
+    server: 'http://localhost:3000',
+    currentLocation: {},
+    currentUser: {},
+    
   }
 })

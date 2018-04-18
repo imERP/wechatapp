@@ -1,3 +1,7 @@
+const app = getApp()
+ 
+const REST = require('../../../utils/rest.js')
+
 Page({
     data: {
         second: 59,
@@ -24,14 +28,81 @@ Page({
         });
         countdown(this);
     },
-    bindSubmitBind: function (){
-        console.log("submit request..");
 
-
+    /**
+     * 页面的初始数据
+     */
+    data: {
+      user: null,
+      userUsername: null,
+      userPassword: null
     },
-    onLoad: function () {
+    /**
+     * 生命周期函数--监听页面加载
+     */
+    onLoad: function (options) {
+      let currentUser = app.globalData.currentUser
+      let user = {
+        username: currentUser.username,
+        password: currentUser.password
+      };
+      console.log(user);
+      // 再通过setData更改Page()里面的data，动态更新页面的数据  
 
+      this.setData({
+        userInfo: user
+      });
+ 
+    },
+
+
+    passwordInput: function (e) {
+      this.setData({
+        userPassword: e.detail.value
+      })
+    },
+    
+    usernameInput: function (e) {
+      this.setData({
+        userUsername: e.detail.value
+      })
+    },
+
+    formSubmit: function (e) { 
+      let data = {
+        username: this.data.userUsername,
+        password: this.data.userPassword,
+      }
+      let res = REST.post('/api/wechat/login', data, res => {
+        console.log(res.error_code)
+          switch (res.error_code) {
+            // 点击定位控件
+            case 200: wx.showToast({
+                title: "登陆成功!",
+                icon: "success",
+                duration: 2000
+              })
+              break;
+            case 404: wx.showToast({
+                title: "账号不存在!",
+                icon: "fail",
+                duration: 2000
+              })
+              break;
+            case 501:  wx.showToast({
+                title: "密码错误!",
+                icon: "fail",
+                duration: 2000
+              })
+              break;
+            default: break;
+          }
+
+        }
+      )
     }
+
+
 });
 
 function countdown(that) {

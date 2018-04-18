@@ -11,14 +11,14 @@
 
   <view class="page__bd">
     <view class="weui-btn-area" bindtap="bindToBind" >
-      <button class="weui-btn" type="primary">绑定手机</button>
+      <button class="weui-btn" type="primary">绑定账号</button>
     </view>
 
 
 
   </view>
 
-  <view class="weui-footer">绑定手机号，享受更便捷服务</view>
+  <view class="weui-footer">绑定绑定账号，享受更便捷服务</view>
 
   <view class="weui-cells">
     <navigator url="settings/settings" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
