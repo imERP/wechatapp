@@ -1,13 +1,6 @@
 {
   "pages": [
-    "pages/location/location",
-    "pages/location/list",
-    "pages/location/detail/detail",
     "pages/me/me",
-    "pages/me/about",
-    "pages/me/settings/settings",
-    "pages/me/feedback/feedback",
-    "pages/me/bind/bind",
     "pages/index/index",
     "pages/index/button/button",
     "pages/index/list/list",
@@ -35,7 +28,14 @@
     "pages/index/navbar/navbar",
     "pages/index/tabbar/tabbar",
     "pages/index/searchbar/searchbar",
-    "pages/location/detail/show"
+    "pages/location/detail/show",
+    "pages/location/location",
+    "pages/location/list",
+    "pages/location/detail/detail",
+    "pages/me/about",
+    "pages/me/settings/settings",
+    "pages/me/feedback/feedback",
+    "pages/me/bind/bind"
   ],
   "window": {
     "navigationBarTitleText": "欢迎使用imERP",

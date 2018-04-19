@@ -8,7 +8,7 @@ Page({
         wait_btn:false,
         send_btn:true,
     },
-
+    
     getphone: function (e){
       wx.request({
         url: 'localhost:3000/v1/***', //仅为示例，并非真实的接口地址
@@ -35,25 +35,26 @@ Page({
     data: {
       user: null,
       userUsername: null,
-      userPassword: null
+      userPassword: null,
+      currentUser: {}
     },
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-      let currentUser = app.globalData.currentUser
-      let user = {
-        username: currentUser.username,
-        password: currentUser.password
-      };
-      console.log(user);
-      // 再通过setData更改Page()里面的data，动态更新页面的数据  
+    // /**
+    //  * 生命周期函数--监听页面加载
+    //  */
+    // onLoad: function (options) {
+    //   let currentUser = app.globalData.currentUser
+    //   let user = {
+    //     username: currentUser.username,
+    //     password: currentUser.password
+    //   };
+    //   console.log(user);
+    //   // 再通过setData更改Page()里面的data，动态更新页面的数据  
 
-      this.setData({
-        userInfo: user
-      });
+    //   this.setData({
+    //     userInfo: user
+    //   });
  
-    },
+    // },
 
 
     passwordInput: function (e) {
@@ -73,6 +74,9 @@ Page({
         username: this.data.userUsername,
         password: this.data.userPassword,
       }
+      let currentUserInfo = app.globalData.currentUserInfo
+      let authentication_token = app.globalData.authentication_token
+      var that = this
       let res = REST.post('/api/wechat/login', data, res => {
         console.log(res.error_code)
           switch (res.error_code) {
@@ -81,6 +85,15 @@ Page({
                 title: "登陆成功!",
                 icon: "success",
                 duration: 2000
+            }), 
+              currentUserInfo = res.data
+              authentication_token = res.data.authentication_token
+              wx.setStorageSync('authentication_token', authentication_token)
+              wx.setStorageSync('currentUserInfo', currentUserInfo)
+              console.log(currentUserInfo)
+              
+              wx.redirectTo({
+                url: '/pages/me/me'
               })
               break;
             case 404: wx.showToast({

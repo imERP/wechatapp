@@ -10,15 +10,17 @@
   </view>
 
   <view class="page__bd">
-    <view class="weui-btn-area" bindtap="bindToBind" >
+    <view class="weui-btn-area" wx:if="{{authentication_token == ''}}" bindtap="bindToBind" >
       <button class="weui-btn" type="primary">绑定账号</button>
     </view>
-
-
-
   </view>
-
-  <view class="weui-footer">绑定绑定账号，享受更便捷服务</view>
+  <view class="page__bd">
+    <view class="weui-btn-area" wx:if="{{authentication_token != ''}}" bindtap="bindToBind"  >
+      <button class="weui-btn" type="primary">欢迎您，{{currentUserInfo.username}}</button>
+    </view>
+  </view>
+  <view wx:if="{{authentication_token == ''}}" class="weui-footer">绑定绑定账号，享受更便捷服务</view>
+  <view wx:if="{{authentication_token != ''}}" class="weui-footer">您已登录，点击<navigator bindtap="loginOut" class="weui-msg__link"> 注销 </navigator></view>
 
   <view class="weui-cells">
     <navigator url="settings/settings" class="weui-cell weui-cell_access" hover-class="weui-cell_active">

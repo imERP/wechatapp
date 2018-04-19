@@ -18,8 +18,6 @@ App({
           wx.getUserInfo({
             success: function (res) { 
               that.globalData.userInfo = res.userInfo
-              console.log(res)
-              that.globalData.userInfo = res.userInfo
               typeof cb == "function" && cb(that.globalData.userInfo)
             }
           })
@@ -29,10 +27,10 @@ App({
   },
   globalData:{
     userInfo: null,
-    token:null,
+    authentication_token:null,
     server: 'http://localhost:3000',
     currentLocation: {},
-    currentUser: {},
+    currentUserInfo: {},
     
   }
 })
