@@ -63,6 +63,11 @@
       }
     ]
   },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "请求获取当前的位置以便记录"
+    }
+  },
   "networkTimeout": {
     "request": 10000,
     "connectSocket": 10000,

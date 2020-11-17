@@ -8,5 +8,5 @@ Page({
       locations: (wx.getStorageSync('location_list') || [])
       })
     // console.log("locations")
-  } 
+  }
 })

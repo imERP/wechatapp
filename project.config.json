@@ -21,11 +21,12 @@
     "packNpmRelationList": [],
     "minifyWXSS": true,
     "useMultiFrameRuntime": false,
-    "useApiHook": true
+    "useApiHook": true,
+    "scopeDataCheck": false
   },
   "compileType": "miniprogram",
   "libVersion": "1.6.4",
-  "appid": "wx3e69716c35f6f964",
+  "appid": "wxfaf9060b99db8de5",
   "projectname": "imerp",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
