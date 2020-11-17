@@ -10,7 +10,9 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.6.4",
 	"appid": "wx3e69716c35f6f964",
-	"projectname": "imERP",
+	"projectname": "imerp",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,

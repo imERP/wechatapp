@@ -2,7 +2,7 @@ Page({
     openToast: function () {
         wx.showToast({
             title: '已完成',
-            icon: 'success',
+          icon: 'success',
             duration: 3000
         });
     },
